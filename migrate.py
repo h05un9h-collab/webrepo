@@ -320,6 +320,60 @@ def generate_misc_pages(repo_root):
         print(f'  ✓ misc/{slug}.html')
 
 
+def render_home(bands):
+    """홈페이지 매거진 그리드 (depth=0: root)"""
+    # Featured: soilwork (마지막 업데이트 2005/01/03), 없으면 첫 번째 밴드
+    featured = next((b for b in bands if b['slug'] == 'soilwork'), bands[0] if bands else None)
+
+    featured_html = ''
+    if featured:
+        r = featured['first_review']
+        display = featured['slug'].replace('_', ' ').upper()
+        excerpt = r['text'].replace('\n', ' ')[:200].strip()
+        featured_html = f'''<div class="card-featured">
+    <p class="card-featured-label">FEATURED</p>
+    <p class="card-featured-band">{display}</p>
+    <p class="card-featured-album">{r["title"]} · {r["year"]}</p>
+    <div class="card-featured-divider"></div>
+    <p class="card-featured-excerpt">{excerpt}</p>
+    <a href="review/{featured["slug"]}/" class="card-featured-link">READ REVIEW →</a>
+  </div>'''
+
+    others = [b for b in bands if b['slug'] != (featured['slug'] if featured else '')][:6]
+    small_cards = ''.join(
+        f'<a href="review/{b["slug"]}/" class="card-small">'
+        f'<p class="card-small-band">{b["slug"].replace("_"," ").upper()}</p>'
+        f'<p class="card-small-album">{b["first_review"]["title"]} · {b["first_review"]["year"]}</p>'
+        f'</a>\n'
+        for b in others
+    )
+
+    news_years_str = ' · '.join(NEWS_YEARS)
+    content = f'''<div class="container">
+  <div class="hero">
+    <p class="hero-label">METAL MUSIC ARCHIVE</p>
+    <p class="hero-sub">리뷰 {len(bands)}개 · 뉴스 아카이브 1996–2003</p>
+  </div>
+  <div class="section-label">REVIEWS</div>
+  <div class="magazine-grid">
+{featured_html}
+{small_cards}  </div>
+  <div class="charts-teaser">
+    <div>
+      <p class="charts-teaser-label">NEWS ARCHIVE</p>
+      <p class="charts-teaser-years">{news_years_str}</p>
+    </div>
+    <a href="news/" class="charts-teaser-link">VIEW ALL →</a>
+  </div>
+</div>'''
+    return page_wrap("GRUND'S HOME", content, depth=0)
+
+def generate_home(repo_root, bands):
+    with open(os.path.join(repo_root, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(render_home(bands))
+    print('  ✓ index.html')
+
+
 if __name__ == '__main__':
     import sys
     repo_root = sys.argv[1] if len(sys.argv) > 1 else '.'
@@ -331,4 +385,6 @@ if __name__ == '__main__':
     generate_news_pages(repo_root)
     print('Generating misc pages...')
     generate_misc_pages(repo_root)
-    print('Done.')
+    print('Generating homepage...')
+    generate_home(repo_root, bands)
+    print(f'\nDone! {len(bands)} reviews + news + misc + home.')
