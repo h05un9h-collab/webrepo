@@ -151,6 +151,8 @@ def generate_review_pages(repo_root):
     반환: [{'slug', 'first_review'}, ...]
     """
     review_src = os.path.join(repo_root, 'new_version', 'review')
+    if not os.path.isdir(review_src):
+        raise FileNotFoundError(f'Source directory not found: {review_src}')
     bands = []
     for band_slug in sorted(os.listdir(review_src)):
         src_path = os.path.join(review_src, band_slug, 'review.html')
