@@ -31,6 +31,7 @@
   margin-bottom: 14px;
   display: -webkit-box;
   -webkit-line-clamp: 5;
+  line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -44,7 +45,7 @@
   display: block;
   transition: background 0.15s;
 }
-.card-small:hover { background: #283447; }
+.card-small:hover { background: var(--card-bg-hover); }
 .card-small-band { font-size: 11px; font-weight: 500; margin-bottom: 2px; }
 .card-small-album { font-size: 9px; color: var(--text-muted); }
 
@@ -72,7 +73,7 @@
   display: block;
   transition: border-color 0.15s, background 0.15s;
 }
-.review-card:hover { border-color: var(--text-muted); background: #283447; }
+.review-card:hover { border-color: var(--text-muted); background: var(--card-bg-hover); }
 .review-card-band { font-size: 11px; font-weight: 500; }
 
 /* BAND DETAIL */
@@ -97,7 +98,7 @@
   display: block;
   transition: background 0.15s;
 }
-.year-card:hover { background: #283447; }
+.year-card:hover { background: var(--card-bg-hover); }
 .year-number { font-size: 26px; font-weight: 200; letter-spacing: 4px; }
 
 .news-entry { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
@@ -114,7 +115,7 @@
   display: block;
   transition: background 0.15s;
 }
-.misc-card:hover { background: #283447; }
+.misc-card:hover { background: var(--card-bg-hover); }
 .misc-card-title { font-size: 12px; font-weight: 500; margin-bottom: 4px; }
 .misc-card-desc { font-size: 10px; color: var(--text-muted); }
 
