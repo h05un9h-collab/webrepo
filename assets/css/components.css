@@ -127,3 +127,21 @@
   .year-grid { grid-template-columns: 1fr 1fr; }
   .misc-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Album cover ──────────────────────────────────── */
+.album-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.album-info { flex: 1; min-width: 0; }
+.album-cover {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 2px;
+  background: var(--card-bg);
+}

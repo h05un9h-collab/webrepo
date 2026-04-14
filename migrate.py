@@ -2,6 +2,10 @@
 import os
 import re
 from bs4 import BeautifulSoup
+import json
+import time
+import urllib.request
+import urllib.parse
 
 SITE_TITLE = "GRUND'S HOME"
 NAV_LINKS = {'review': 'REVIEW', 'news': 'NEWS', 'misc': 'MISC'}
@@ -128,10 +132,17 @@ def render_band_page(band_slug, reviews):
         meta = r['year']
         if r['label']:
             meta += f' · {r["label"]}'
+        cover_url = r.get('cover_url', '')
+        cover_img = f'<img class="album-cover" src="{cover_url}" alt="{r["title"]} cover" loading="lazy">' if cover_url else ''
         albums_html += f'''  <div class="album-block">
-    <h3 class="album-title">{r["title"]}</h3>
-    <p class="album-meta">{meta}</p>
-    {score_html}
+    <div class="album-header-row">
+      <div class="album-info">
+        <h3 class="album-title">{r["title"]}</h3>
+        <p class="album-meta">{meta}</p>
+        {score_html}
+      </div>
+      {cover_img}
+    </div>
     <div class="album-review">{text_html}</div>
   </div>\n'''
 
@@ -153,6 +164,7 @@ def generate_review_pages(repo_root):
     review_src = os.path.join(repo_root, 'new_version', 'review')
     if not os.path.isdir(review_src):
         raise FileNotFoundError(f'Source directory not found: {review_src}')
+    cache = load_cover_cache(repo_root)
     bands = []
     for band_slug in sorted(os.listdir(review_src)):
         src_path = os.path.join(review_src, band_slug, 'review.html')
@@ -162,6 +174,9 @@ def generate_review_pages(repo_root):
         reviews = extract_reviews(html)
         if not reviews:
             continue
+        artist = band_slug.replace('_', ' ')
+        for r in reviews:
+            r['cover_url'] = fetch_cover_url(artist, r['title'], cache, repo_root) or ''
         out_dir = os.path.join(repo_root, 'review', band_slug)
         os.makedirs(out_dir, exist_ok=True)
         with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
@@ -296,6 +311,45 @@ def extract_misc_text(html):
     for tag in soup(['script', 'style']):
         tag.decompose()
     return soup.get_text(separator='\n', strip=True)
+
+def load_cover_cache(repo_root):
+    path = os.path.join(repo_root, 'assets', 'cover_cache.json')
+    if os.path.isfile(path):
+        with open(path, encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
+def save_cover_cache(repo_root, cache):
+    path = os.path.join(repo_root, 'assets', 'cover_cache.json')
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+
+def fetch_cover_url(artist, album, cache, repo_root):
+    """iTunes Search API로 앨범 커버 URL 가져오기. cache에 저장."""
+    key = f'{artist}/{album}'
+    if key in cache:
+        return cache[key]  # None = not found (don't refetch)
+    query = urllib.parse.urlencode({'term': f'{artist} {album}', 'media': 'music', 'entity': 'album', 'limit': 5})
+    url = f'https://itunes.apple.com/search?{query}'
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            data = json.loads(resp.read())
+        results = data.get('results', [])
+        art_url = None
+        for r in results:
+            raw = r.get('artworkUrl100', '')
+            if raw:
+                art_url = raw.replace('100x100bb', '300x300bb')
+                break
+        cache[key] = art_url
+        save_cover_cache(repo_root, cache)
+        time.sleep(0.3)  # rate limit courtesy
+        return art_url
+    except Exception:
+        cache[key] = None
+        save_cover_cache(repo_root, cache)
+        return None
 
 def generate_misc_pages(repo_root):
     os.makedirs(os.path.join(repo_root, 'misc'), exist_ok=True)
