@@ -351,8 +351,7 @@ def render_home(bands):
     news_years_str = ' · '.join(NEWS_YEARS)
     content = f'''<div class="container">
   <div class="hero">
-    <p class="hero-label">METAL MUSIC ARCHIVE</p>
-    <p class="hero-sub">리뷰 {len(bands)}개 · 뉴스 아카이브 1996–2003</p>
+    <p class="hero-label">METAL MUSIC ARCHIVE · 2003–2005</p>
   </div>
   <div class="section-label">REVIEWS</div>
   <div class="magazine-grid">
@@ -366,7 +365,7 @@ def render_home(bands):
     <a href="news/" class="charts-teaser-link">VIEW ALL →</a>
   </div>
 </div>'''
-    return page_wrap("GRUND'S HOME", content, depth=0)
+    return page_wrap('HOME', content, depth=0)
 
 def generate_home(repo_root, bands):
     with open(os.path.join(repo_root, 'index.html'), 'w', encoding='utf-8') as f:
