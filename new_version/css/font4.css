@@ -1,0 +1,14 @@
+a:link { font-family:verdana,gulimche; color:#cc9900; font-size:8pt; text-decoration: none; cursor:default;} 
+a:visited { font-family:verdana,gulimche; color:#cc9900; font-size:8pt; text-decoration: none; cursor:default;} 
+a:hover { font-family:verdana,gulimche; color:#ffffff; font-size:8pt; text-decoration: none; cursor:hand;} 
+a:active { font-family:verdana,gulimche; color:#ffffff; font-size:8pt; text-decoration: none; cursor:default;} 
+
+.style3 { font-family:verdana,gulimche; color:#999999; font-size:8pt; text-decoration: none;line-height:120%}
+
+.body1{color:#CCCCCC;font-family:verdana,GulimChe;line-height:140%;letter-spacing:10%;font-size:8pt;}
+.body2{color:#CC9900;font-family:verdana,GulimChe;line-height:140%;letter-spacing:10%;font-size:9pt;}
+.body3{color:#666633;font-family:verdana,GulimChe;line-height:140%;letter-spacing:10%;font-size:9pt;}
+.body4{color:#6666FF;font-family:verdana,GulimChe;line-height:140%;letter-spacing:10%;font-size:9pt;}
+.body5{color:#999999;font-family:verdana,GulimChe;line-height:140%;letter-spacing:10%;font-size:9pt;}
+
+BODY { margin:0 0 0 0; }

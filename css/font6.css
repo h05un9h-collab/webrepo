@@ -1,0 +1,21 @@
+
+
+
+.body1{color:#CC9900;font-family:verdana,GulimChe;line-height:140%;letter-spacing:10%;font-size:9pt;}
+.body2{color:#6666FF;font-family:verdana,GulimChe;line-height:140%;letter-spacing:10%;font-size:8pt;}
+.body3{color:#669900;font-family:verdana,GulimChe;line-height:140%;letter-spacing:10%;font-size:8pt;}
+.body4{color:#cccccc;font-family:verdana;GulimChe;line-height:140%;letter-spacing:10%;font-size:8pt;}
+.body5{color:#CC9900;font-family:verdana,GulimChe;line-height:140%;letter-spacing:10%;font-size:8pt;}
+
+<!--
+body 
+	{
+	scrollbar-face-color: #333333;
+	scrollbar-shadow-color: #CCCCCC; 
+	scrollbar-highlight-color: #CCCCCC;
+	scrollbar-3dlight-color: #333333; 
+	scrollbar-darkshadow-color: #333333;
+	scrollbar-track-color: #333333;
+	scrollbar-arrow-color: #CCCCCC
+    }
+//--> 

@@ -1,0 +1,202 @@
+<!--  
+COPYRIGHT AND TRADEMARK NOTICE
+
+The Klip File Format is copyright 2001-2003, Serence Inc.
+Klip and associated marks are trademarks of Serence Inc.
+All rights reserved.
+
+http://www.serence.com/site.php?action=ser_legal,legal_tmip
+
+Please note that information you enter here will be available to the public
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+When you're done writing your Klip, feel free to remove these comments to
+reduce the size of the file you distribute to your users.
+
+And don't forget to rename your .klip file from "template.klip" to something
+more descriptive.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+
+
+<klip>
+	<owner>
+		<author>
+			<!--
+			your name
+			-->
+			grund
+
+		</author>
+		<copyright>
+			<!--
+			your copyright notice
+			-->
+			(c)2004 grund
+
+		</copyright>
+		<email>
+			<!--
+			your contact or company email address
+			-->
+			grund1217@hotmail.com
+
+		</email>
+		<web>
+			<!--
+			your contact or company web address
+			-->
+			http://grund.egloos.com
+
+		</web>
+	</owner>
+	<identity>
+		<title>
+			<!--
+			the title of this Klip to display in KlipFolio
+			-->
+			grund\'s shelter
+
+		</title>
+		<uniqueid>
+			<!--
+			an identifier that is unique to this Klip goes here.
+			we suggest you choose some text that is unlikely to be used by
+			any other Klip author
+			-->
+			
+
+		</uniqueid>
+		<version>
+			<!--
+			a version number to help you keep track of your Klip as it changes
+			-->
+			1.0
+
+		</version>
+		<lastmodified>
+			<!--
+			the date this Klip was last modified yyyy.mm.dd:hhmm
+			-->
+			2004.02.24:1642
+
+		</lastmodified>
+		<description>
+			<!--
+			a short description of this Klip
+			-->
+			일본에서 사는 이야기, 음악, 영화 그리고 주절주절... ---------------------------------- klip.co.kr을 통해 손쉽게 자신의 klip파일을 만들고 다른사람과 나눌 수 있습니다.
+
+		</description>
+		<keywords>
+			<!--
+			a space delimited list of keywords for matching your klip during a
+			search the order of the keywords is relevant no more than 15
+			keywords will be processed
+			-->
+			
+
+		</keywords>
+	</identity>
+	<locations>
+		<defaultlink>
+			<!--
+			a url pointing to a page relevant to this Klip
+			when a user clicks on your Klip (except on an item) they are
+			directed here
+			-->
+			http://grund.egloos.com
+
+		</defaultlink>
+		<contentsource>
+			<!--
+			a url pointing to the KlipFood this Klip uses to find new data
+			-->
+			http://grund.egloos.com/index.xml
+
+		</contentsource>
+		<icon>
+			<!--
+			a url pointing to this Klip's default 16x16 gif or jpeg icon
+			-->
+			http://www.klipfarm.com/beta/klipfiles/icon_small/2
+
+		</icon>
+		<banner>
+			<!--
+			a url pointing to this Klip's 234x60 gif or jpeg banner 
+			-->
+			http://
+
+		</banner>
+		<help>
+			<!--
+			a url pointing to online help specific to this Klip
+			-->
+			
+
+		</help>
+		<kliplocation>
+			<!--
+			a url where new versions of this Klip can be found.
+			KlipFolio periodically checks for updates to your Klip at this url
+			-->
+			http://www.grundweb.com/cgi-bin/blog/klip/
+
+		</kliplocation>	
+	</locations>
+	<setup>
+		<refresh>
+			<!--
+			how often, in minutes, this Klip should check for new KlipFood
+			-->
+			180
+
+		</refresh>
+		<referer>
+			<!--
+			if required, specify text here to help you track your Klip's usage
+			this text is sent as an HTTP referer (see RFC 1945 for details)
+			-->
+			http://www.klip.co.kr
+
+		</referer>
+		<country>
+			<!--
+			the two character ISO country code which identifies where your
+			Klip comes from.  See the dev guide for a list of codes
+			-->
+			KR
+
+		</country>
+		<language>
+			<!--
+			the two character ISO language code which identifies what language
+			your Klip uses.  See the dev guide for a list of codes
+			-->
+			ko
+
+		</language>
+		<codepage>
+			<!--
+			only required if you need to override the default codepage
+			used by your language choice
+			-->
+			949
+
+		</codepage>
+	</setup>
+
+	<!-- Messages Section
+	Include this section in your Klip to show a different message while your
+	Klip loads or has no data to display -->
+	
+	<messages>
+		<loading>
+			Getting data... Enjoy klip.co.kr
+		</loading>
+		<nodata>
+			No items to display. Enjoy klip.co.kr 
+		</nodata>
+	</messages>
+</klip>

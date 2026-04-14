@@ -1,0 +1,25 @@
+<!--another side of grund's home start-->
+    <td width="425" valign="top">
+      <table>
+	    <tr>  
+	      <td>
+	        <img src="../img/stream.gif">
+	      </td>
+	    </tr>
+   	    <tr>  
+	      <td align="center">
+<!--flash start-->
+<!-- url's used in the movie-->
+<a href=javascript:another_win()></a> <!-- text used in the movie-->
+<!--another side of grund's homestreaming the extreme musicclick here & check it out!-->
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="259" height="54" id="another" align="">
+  <param name=movie value="another.swf">
+  <param name=quality value=high>
+  <param name=bgcolor value=#333333>
+  <embed src="another.swf" quality=high bgcolor=#ffffff  width="259" height="54" name="another" align="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+</object>
+<!--flash end-->
+	      </td>
+	    </tr>
+      </table>
+<!--another side of grund's home end-->

@@ -1,0 +1,6 @@
+a:link { font-family:verdana; color:#cc9900; font-size:9pt; text-decoration: none; cursor:default;} 
+a:visited { font-family:verdana; color:#cc9900; font-size:9pt; text-decoration: none; cursor:default;} 
+a:hover { font-family:verdana; color:#ffffff; font-size:9pt; text-decoration: none; cursor:hand;} 
+a:active { font-family:verdana; color:#ffffff; font-size:9pt; text-decoration: none; cursor:default;} 
+
+.style1 {font-family:verdana; color:#cc9900; font-size:9pt;}

@@ -1,0 +1,295 @@
+<html>
+<head>
+<title>서버 사용법</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" marginheight="0" marginwidth="0" topmargin="0">
+<p align="center"><img src="http://x-y.net/img/bar1.gif" width="300" height="50"></p>
+<table width="700" border="0" align="center">
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534"><font size="2">먼저 여러분의 홈페이지를 개설하신 것을 환영합니다. 이 서버 매뉴얼은 여러분의 
+      홈페이지를 운영하기 위해 필요한 기본적인 사항을 설명하기 위해 작성되었습니다. 그외의 질문은 <a href="mailto:webmaster@newseoul.com">webmaster@newseoul.com</a> 
+      으로 하시거나 <a href="http://www.newseoul.com" target="_blank">newseoul.com</a> 
+      의 메인 홈페이지를 참조 하시기 바랍니다. </font></td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534"><font size="2"><img src="http://x-y.net/img/bar2.gif" width="300" height="31"></font></td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534"><font size="2">Telnet <font color="#666666">|</font> FTP <font color="#666666">|</font> 
+      Email <font color="#666666">|</font> Cgi-bin <font color="#666666">|</font> 
+      Php </font></td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534"><font size="2"></font></td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534"><img src="http://x-y.net/img/bar3.gif" width="300" height="31"></td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534" bgcolor="#F0F0F0"><font size="2"><b>Telnet 사용법</b></font></td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="85">&nbsp;</td>
+    <td width="534" height="85"> 
+      <p><font size="2">서버로의 접속<br>
+        서버셋팅이 완료되었다는 메일을 받으신 후 회원께서는 Telnet 으로 접속하기위해 가입하실 당시 기재하셨던 Login 과 패스워드를 
+        사용하실 수 있습니다. 텔넷접속을 하기 위해서는 widows의 시작 -> 실행창에서 "telnet 도메인(호스팅을 신청한 도메인)" 
+        을 하시면 윈도우에서 제공하는 기본 텔넷 프로그램이 실행됩니다. 혹은 좀더 나은 방법은 새롬을 이용하는 방법으로 새롬의 접속 
+        주소로 "신청하신 도메인" 을 입력하시면 됩니다.<br>
+        <br>
+        <b>접속 주소</b> : 신청하신 도메인<br>
+        <b>Login ID</b> : E-mail로 통지<br>
+        <b>Password</b> : 가입하신 패스워드 </font></p>
+      <p>&nbsp; </p>
+    </td>
+    <td width="49" height="85">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="15">&nbsp;</td>
+    <td width="534" height="15" bgcolor="#F0F0F0"><font size="2"><b>텔넷에서 Email 
+      보는 법 </b></font></td>
+    <td width="49" height="15">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="39">&nbsp;</td>
+    <td width="534" height="39"><font size="2"> 서버에는 기본 팩키지로 PINE 가 설치되어 있습니다. 
+      서버로 접속하셔서 Email을 보시려면 pine 을 치시면 됩니다. </font> 
+      <p>&nbsp; </p>
+    </td>
+    <td width="49" height="39">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="9">&nbsp;</td>
+    <td width="534" height="9" bgcolor="#F0F0F0"><font size="2"><b>초기 홈페이지 작성 
+      </b></font></td>
+    <td width="49" height="9">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="46">&nbsp;</td>
+    <td width="534" height="46"> 
+      <p><font size="2"> 디렉토리를 붙이지 않은 홈페이지의 기본주소를 쳤을 때 표시되는 홈페이지로 유닉스에서는 보통 index.html 
+        이나 index.htm 을 사용하고 있습니다. PHP를 사용하는 분은 index.php나 index.php3로 사용기도 합니다. 
+        newseoul.com 서버에서 홈페이지가 실행되는 기본 디렉토리는 접속후 ls 를 실행시켰을 때 보이는 www 디렉토리 입니다. ftp 
+        로www 디렉토리로 들어신후 index.html을 업로드하시거나 Telnet 에서는pico나 vi 에디터로 간단한 홈페이지를 
+        작성후 index.html로 저장시키면 됩니다. </font></p>
+      <p><font size="2">**중요 : 초기페이지는 반드시 index.html 이어야 합니다.</font></p>
+    </td>
+    <td width="49" height="46">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="4">&nbsp;</td>
+    <td width="534" height="4" bgcolor="#F0F0F0"><font size="2"><b>FTP 사용법 </b></font></td>
+    <td width="49" height="4">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="85">&nbsp;</td>
+    <td width="534" height="85"> <font size="2"> 먼저 자주 가시는 세어웨어 사이트로 가시어 다른 사람들이 
+      자주 다운받는 FTP 프로그램을 다운로드 받습니다. 예를 들어 Cuteftp 는 인기있는 프로그램중에 하나입니다. 이 프로그램을 
+      설치 후 구동하고 접속할 주소에 신청하신 도메인, ID 와 패스워드 사용하시면 회원의 기본 디렉토리인 /home/회원디렉토리에 접속하시게 
+      됩니다. 이때 홈페이지를 업로드 하시려면 www 디렉토리를 클릭하여 들어가신 후에 이 디렉토리에 업로드 하시면 됩니다. 혹은 기타 
+      원하시는 파일을 서버에 두시려고 할 때 디렉토리 어디에나 새 디렉토리를 만드시어 보관하실 수 있습니다. 참고로 newseoul.com 
+      에서는 anonymous ftp 를 허가 하지 않고 있으니 파일 다운로드 사이트를 운영하실 수 없습니다. </font> 
+      <p>&nbsp; </p>
+    </td>
+    <td width="49" height="85">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534" bgcolor="#F0F0F0"><font size="2"><b>Email 사용법 </b></font></td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534"> <font size="2"> 회원께서 가입하셨을 당시 회원께서는 기본적으로 신청하신 Email을 부여 
+      받습니다. 현재 newseoul.com 에서는 웹메일 서비스를 제공하지 않기 때문에 일반적으로 많이 사용하시는 Email 브라우저의 
+      예로 Outlook Express 의 설정법은 다음과 같습니다. </font> 
+      <p><font size="2">아웃룩 익스프레스를 구동합니다. 상단 메뉴에서 도구 -> 계정 -> 추가 -> 메일을 선택하십시오 
+        사용자 이름란에 회원님의 성함을 적어넣습니다. 인터넷 전자메일 주소란에 배정받은 전자메일주소(예:회원ID@newseoul.com) 
+        를 적어넣습니다. 받는 메일 서버(POP3) 란에 신청하신 도메인을 적고 보내는 메일 서버는 접속하시는 ISP 의 SMTP 주소를 
+        알아내시어 사용하시면 됩니다. </font></p>
+      <p><font size="2">하이텔(Hitel) mail.hitel.net <br>
+        코넷(Kornet) kornet.net / (shell 사용자) mail.kornet.net / <br>
+        <font color="#FFFFFF">-----------</font>(ppp 서비스 이용자) ppp.kornet.net<br>
+        천리안(Chollian) mail.chollian.net <br>
+        나우누리(Nownuri) mail.nownuri.net <br>
+        유니텔(Unitel) 88.4.3.140 <br>
+        아이넷(I-net) mail.nuri.net <br>
+        두루넷(thrunet) smtp.thrunet.com <br>
+        아이프리(iFree) mail.ifree.net <br>
+        넷츠고(Netsgo) netsgo.com <br>
+        채널아이(Channel-i) mail.channeli.net <br>
+        신비로(Shinbiro) mail.shinbiro.com <br>
+        엘림넷(Elimnet) elim.net <br>
+        인터피아(Interpia) pop3.interpia.net <br>
+        키스코(Kisco) 203.233.144.1 <br>
+        미래텔(Miraetel) miraetel.kornet.nm.kr <br>
+        경기넷 mail.kg21.net <br>
+        하나로통신 mail.hananet.net <br>
+        에듀넷(Edunet) edunet.nmc.nm.kr </font></p>
+      <p><font size="2">인터넷 메일 로그온시 메일로 보내드린 아이디와 패스워드를 적어넣으시면 됩니다. </font></p>
+      <p><font size="2">이로써 모든 셋업은 끝나고 정상적인 작동을 확인하시려면 인터넷 접속을 확인하신 후 아웃룩에서 배달을 
+        클릭하시면 됩니다. </font></p>
+      <p><font size="2">그 외에 다른 Email 브라우저에서도 기본적인 자신의 Email 주소와 POP3 그리고 SMTP 
+        , 계정,패스워드를 위와 같이 입력하시어 사용하시면 됩니다. </font></p>
+      <p>&nbsp;</p>
+    </td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="2">&nbsp;</td>
+    <td width="534" height="2" bgcolor="#F0F0F0"><font size="2"><b>CGI-BIN </b></font></td>
+    <td width="49" height="2">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="47">&nbsp;</td>
+    <td width="534" height="47"> <font size="2"> 회원 계정의 www 디렉토리 안에는 cgi-bin 이라는 
+      디렉토리가 있습니다. 이곳에는 웹에서 실행가능한 파일 즉 웹프로그램을 설치할 수 있는 디렉토리로 유저계정에서는 유저URL/cgi-bin 
+      이 됩니다. newseoul.com 에서는 기본적으로 게시판과 방명록을 이곳의 board 디렉토리를 설정하여 드리므로 자유로이 게시판과 
+      방명록을 만드시어 사용하실 수 있습니다. 또한 기타의 perl 이나 CGI 프로그램 또한 이곳에 설치하시어 구동하시면 됩니다. </font> 
+      <p>&nbsp;</p>
+    </td>
+    <td width="49" height="47">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534" bgcolor="#F0F0F0"><font size="2"><b>게시판 및 방명록 사용법 </b></font></td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534"> 
+      <p><font size="2">x-y에서 제작 배포하고 있는 게시판과 방명록 입니다. <br>
+        설명서는 해당 사이트에서 참조하시기 바랍니다.</font></p>
+      <p><font size="2">게시판 <a href="http://www.x-y.net/bbs_home/" target="_blank">http://www.x-y.net/bbs_home/</a><br>
+        방명록 <a href="http://www.x-y.net/gb_home/" target="_blank">http://www.x-y.net/gb_home/</a></font></p>
+      <p>&nbsp;</p>
+      </td>
+    <td width="49">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="9">&nbsp;</td>
+    <td width="534" height="9" bgcolor="#F0F0F0"><font size="2"><b>PHP </b></font></td>
+    <td width="49" height="9">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="61">&nbsp;</td>
+    <td width="534" height="61"> <font size="2"> 서버에서 기본적으로 PHP 를 지원합니다. 확장자는 
+      php, php3를 사용하시면 됩니다. </font>
+<p>&nbsp; </p>
+    </td>
+    <td width="49" height="61">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="3">&nbsp;</td>
+    <td width="534" height="3" bgcolor="#F0F0F0"><font size="2"><b>Perl </b></font></td>
+    <td width="49" height="3">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="37">&nbsp;</td>
+    <td width="534" height="37"> 
+      <p><font size="2"> Perl 을 사용하기 위해서는 프로그램을 CGI-BIN 디렉토리에 설치하셔야 하며 .cgi 나 
+        .pl을 퍼미션을 755 로 하며 코드안쪽에 perl 의 /usr/bin/perl 로 설정하시어 사용하시면 됩니다. </font></p>
+      <p>&nbsp; </p>
+    </td>
+    <td width="49" height="37">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="20">&nbsp;</td>
+    <td width="534" height="20" bgcolor="#EEEEEE"><font size="2"><b>에디터 </b></font></td>
+    <td width="49" height="20">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="20">&nbsp;</td>
+    <td width="534" height="20"> 
+      <p><font size="2"> Pico, Vi 등의 에디터가 서버에 설치되어 있습니다.</font></p>
+      <p>&nbsp; </p>
+    </td>
+    <td width="49" height="20">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="8">&nbsp;</td>
+    <td width="534" height="8" bgcolor="#F0F0F0"><font size="2"><b>유닉스 기본명령어</b></font></td>
+    <td width="49" height="8">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54" height="114">&nbsp;</td>
+    <td width="534" height="114"> 
+      <table width="97%" border="0" cellspacing="0" cellpadding="3">
+        <tr bgcolor="#FFFFFF"> 
+          <td width="11%"><font size="2">ls</font></td>
+          <td width="89%"><font size="2">현재의 디렉토리의 내용물을 보고자 할 때 사용한다 여기서 -l 옵션은 
+            파일의 사이즈와 퍼미션을 같이 확인하고자 할 때 사용하며 -a 는 숨겨진 파일들을 확인할 때 사용한다. 두 옵션을 같이 
+            사용하고자 할 때 ls -al 등으로 사용할 수도 있다. </font></td>
+        </tr>
+        <tr bgcolor="#F8F8F8"> 
+          <td width="11%"><font size="2">pwd</font></td>
+          <td width="89%"><font size="2">사용자의 현재의 디렉토리 표시</font></td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width="11%"><font size="2">cd</font></td>
+          <td width="89%"><font size="2">디렉토리 변경하고자 할 때 사용</font></td>
+        </tr>
+        <tr bgcolor="#F8F8F8"> 
+          <td width="11%"><font size="2">mkdir</font></td>
+          <td width="89%"><font size="2">새디렉토리를 만들고자 할 때 사용(예:mkdir xxx)</font></td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width="11%"><font size="2">rm</font></td>
+          <td width="89%"><font size="2">파일이나 디렉토리를 지우고자 할 때 사용 (예: rm xxx) 여기서 
+            -f 옵션은 강제로 지우고자 할 때 사용하고 이 옵션을 사용하지 않을시에는 지워도 되냐는 메시지가 나온다. 또한 디렉토리를 
+            지우고자 할때는 -r 을 사용한다</font></td>
+        </tr>
+        <tr bgcolor="#F8F8F8"> 
+          <td width="11%"><font size="2">cp</font></td>
+          <td width="89%"><font size="2">파일을 카피하고자 할 때 사용한다. (예 : cp 카피할파일명 새파일명)</font></td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width="11%"><font size="2">mv</font></td>
+          <td width="89%"><font size="2">파일이나 디렉토리를 다른곳이나 다른이름으로 옮길 때 사용한다.(예: 
+            mv 옮길파일 옮겨갈파일) </font></td>
+        </tr>
+        <tr bgcolor="#F8F8F8"> 
+          <td width="11%"><font size="2">find</font></td>
+          <td width="89%"><font size="2">필요한 파일을 찾고자 할 때 사용한다.</font></td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td width="11%"><font size="2">Mail</font></td>
+          <td width="89%"><font size="2">메일을 보내고자 할 때 사용한다.</font></td>
+        </tr>
+        <tr bgcolor="#F8F8F8"> 
+          <td width="11%"><font size="2">Passwd</font></td>
+          <td width="89%"><font size="2">패스워드를 변경할 때 사용한다. </font></td>
+        </tr>
+      </table>
+    </td>
+    <td width="49" height="114">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="54">&nbsp;</td>
+    <td width="534">&nbsp; </td>
+    <td width="49">&nbsp;</td>
+  </tr>
+</table>
+<hr noshade size="2">
+<div align="center"><font size="2">Copyright 1999. "<b><font color="#000066">SoftCan. 
+  Inc</font></b>" All right reserved. <br>
+  Technical Contact by <a href="mailto:webmaster@x-y.net">Webmaster@x-y.net</a></font><br>
+</div>
+<p>&nbsp;</p>
+</body>
+</html>
+

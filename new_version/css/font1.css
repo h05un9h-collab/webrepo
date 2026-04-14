@@ -1,0 +1,19 @@
+a:link { font-family:verdana; color:#999999; font-size:7pt; text-decoration: none; cursor:default;} 
+a:visited { font-family:verdana; color:#999999; font-size:7pt; text-decoration: none; cursor:default;} 
+a:hover { font-family:verdana; color:#ffffff; font-size:7pt; text-decoration: none; cursor:hand;} 
+a:active { font-family:verdana; color:#ffffff; font-size:7pt; text-decoration: none; cursor:default;} 
+
+.style2 {font-family:verdana; color:#999999; font-size:7pt;}
+
+<!--
+body 
+	{
+	scrollbar-face-color: #333333;
+	scrollbar-shadow-color: #CCCCCC; 
+	scrollbar-highlight-color: #CCCCCC;
+	scrollbar-3dlight-color: #333333; 
+	scrollbar-darkshadow-color: #333333;
+	scrollbar-track-color: #333333;
+	scrollbar-arrow-color: #CCCCCC
+	}
+//-->  
