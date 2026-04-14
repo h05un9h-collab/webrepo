@@ -171,9 +171,164 @@ def generate_review_pages(repo_root):
     return bands
 
 
+def render_review_index(bands):
+    """밴드 목록 페이지 (depth=1: review/)"""
+    cards_html = ''.join(
+        f'<a href="{b["slug"]}/" class="review-card">'
+        f'<span class="review-card-band">{b["slug"].replace("_", " ").upper()}</span>'
+        f'</a>\n'
+        for b in bands
+    )
+    content = f'''<div class="container">
+  <div class="hero">
+    <div class="section-label">ALL REVIEWS — {len(bands)} BANDS</div>
+  </div>
+  <div class="review-grid">
+{cards_html}  </div>
+</div>'''
+    return page_wrap('REVIEWS', content, depth=1)
+
+def generate_review_index(repo_root, bands):
+    out_path = os.path.join(repo_root, 'review', 'index.html')
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with open(out_path, 'w', encoding='utf-8') as f:
+        f.write(render_review_index(bands))
+    print('  ✓ review/index.html')
+
+def render_news_year(year, entries):
+    """연도별 뉴스 페이지 (depth=1: news/)"""
+    if entries:
+        entries_html = ''.join(
+            f'<div class="news-entry">'
+            f'<p class="news-band">{e["band"]}</p>'
+            f'<p class="news-content">{e["content"]}</p>'
+            f'</div>\n'
+            for e in entries
+        )
+    else:
+        entries_html = '<p style="color:var(--text-muted);font-size:11px;">기록 없음</p>'
+
+    content = f'''<div class="container">
+  <a href="index.html" class="back-link">← NEWS</a>
+  <div class="hero">
+    <div class="section-label">NEWS ARCHIVE</div>
+    <h1 style="font-size:22px;font-weight:200;letter-spacing:4px;">{year}</h1>
+  </div>
+{entries_html}</div>'''
+    return page_wrap(f'NEWS {year}', content, depth=1)
+
+def render_news_index():
+    """뉴스 연도 선택 인덱스 (depth=1: news/)"""
+    cards_html = ''.join(
+        f'<a href="{year}.html" class="year-card">'
+        f'<span class="year-number">{year}</span></a>\n'
+        for year in NEWS_YEARS
+    )
+    content = f'''<div class="container">
+  <div class="hero">
+    <div class="section-label">NEWS ARCHIVE</div>
+    <p class="hero-sub">메탈 씬 뉴스 · 1996–2003</p>
+  </div>
+  <div class="year-grid">
+{cards_html}  </div>
+</div>'''
+    return page_wrap('NEWS', content, depth=1)
+
+def generate_news_pages(repo_root):
+    os.makedirs(os.path.join(repo_root, 'news'), exist_ok=True)
+    for year in NEWS_YEARS:
+        src = os.path.join(repo_root, 'charts', f'{year}.html')
+        entries = []
+        if os.path.isfile(src):
+            entries = extract_news_entries(read_html(src))
+        with open(os.path.join(repo_root, 'news', f'{year}.html'), 'w', encoding='utf-8') as f:
+            f.write(render_news_year(year, entries))
+        print(f'  ✓ news/{year}.html ({len(entries)} entries)')
+    with open(os.path.join(repo_root, 'news', 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(render_news_index())
+    print('  ✓ news/index.html')
+
+def render_misc_index():
+    """misc 허브 페이지 (depth=1)"""
+    content = '''<div class="container">
+  <div class="hero">
+    <div class="section-label">MISC</div>
+    <p class="hero-sub">기타 콘텐츠</p>
+  </div>
+  <div class="misc-grid">
+    <a href="world.html" class="misc-card">
+      <p class="misc-card-title">WORLD MAP</p>
+      <p class="misc-card-desc">메탈 씬 세계 지도</p>
+    </a>
+    <a href="tolkien.html" class="misc-card">
+      <p class="misc-card-title">TOLKIEN MUSIC</p>
+      <p class="misc-card-desc">톨킨 음악 가이드</p>
+    </a>
+    <a href="cyberblack.html" class="misc-card">
+      <p class="misc-card-title">CYBERBLACK</p>
+      <p class="misc-card-desc">사이버블랙 페이지</p>
+    </a>
+  </div>
+</div>'''
+    return page_wrap('MISC', content, depth=1)
+
+def render_misc_content(title, body_text):
+    """misc 서브페이지 (depth=1). body_text가 비어있으면 Flash 안내 표시"""
+    if body_text.strip():
+        body_html = ''.join(
+            f'<p style="font-size:11px;color:var(--text-secondary);line-height:1.8;margin-bottom:12px;">{p.strip()}</p>'
+            for p in body_text.split('\n') if p.strip()
+        )
+    else:
+        body_html = '<p style="color:var(--text-muted);font-size:11px;">원본 콘텐츠는 Flash를 사용하여 현재 재생할 수 없습니다.</p>'
+    content = f'''<div class="container">
+  <a href="index.html" class="back-link">← MISC</a>
+  <div class="hero">
+    <div class="section-label">MISC</div>
+    <h1 style="font-size:18px;font-weight:300;letter-spacing:3px;">{title.upper()}</h1>
+  </div>
+  {body_html}
+</div>'''
+    return page_wrap(title.upper(), content, depth=1)
+
+def extract_misc_text(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    for tag in soup(['script', 'style']):
+        tag.decompose()
+    return soup.get_text(separator='\n', strip=True)
+
+def generate_misc_pages(repo_root):
+    os.makedirs(os.path.join(repo_root, 'misc'), exist_ok=True)
+
+    with open(os.path.join(repo_root, 'misc', 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(render_misc_index())
+    print('  ✓ misc/index.html')
+
+    # world — Flash 콘텐츠, 대체 텍스트 사용
+    with open(os.path.join(repo_root, 'misc', 'world.html'), 'w', encoding='utf-8') as f:
+        f.write(render_misc_content('World Map', ''))
+    print('  ✓ misc/world.html')
+
+    for slug, src_name, display in [
+        ('tolkien', 'tolkienmusic.html', 'Tolkien Music'),
+        ('cyberblack', 'cyberblack.html', 'Cyberblack'),
+    ]:
+        src = os.path.join(repo_root, 'misc', src_name)
+        text = extract_misc_text(read_html(src)) if os.path.isfile(src) else ''
+        with open(os.path.join(repo_root, 'misc', f'{slug}.html'), 'w', encoding='utf-8') as f:
+            f.write(render_misc_content(display, text))
+        print(f'  ✓ misc/{slug}.html')
+
+
 if __name__ == '__main__':
     import sys
     repo_root = sys.argv[1] if len(sys.argv) > 1 else '.'
     print('Generating review pages...')
     bands = generate_review_pages(repo_root)
-    print(f'Done: {len(bands)} band pages')
+    print('Generating review index...')
+    generate_review_index(repo_root, bands)
+    print('Generating news pages...')
+    generate_news_pages(repo_root)
+    print('Generating misc pages...')
+    generate_misc_pages(repo_root)
+    print('Done.')
