@@ -1,0 +1,128 @@
+/* assets/css/components.css */
+
+/* MAGAZINE GRID */
+.magazine-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.card-featured {
+  grid-row: span 2;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 2px;
+}
+.card-featured-label {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.card-featured-band { font-size: 16px; font-weight: 500; margin-bottom: 2px; }
+.card-featured-album { font-size: 10px; color: var(--text-secondary); margin-bottom: 14px; }
+.card-featured-divider { width: 24px; height: 1px; background: var(--border); margin-bottom: 14px; }
+.card-featured-excerpt {
+  font-size: 10px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-featured-link { font-size: 9px; letter-spacing: 1px; color: var(--text-muted); }
+.card-featured-link:hover { color: var(--text-secondary); }
+
+.card-small {
+  background: var(--card-bg);
+  padding: 14px;
+  border-radius: 2px;
+  display: block;
+  transition: background 0.15s;
+}
+.card-small:hover { background: #283447; }
+.card-small-band { font-size: 11px; font-weight: 500; margin-bottom: 2px; }
+.card-small-album { font-size: 9px; color: var(--text-muted); }
+
+/* CHARTS/NEWS TEASER (homepage) */
+.charts-teaser {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.charts-teaser-label { font-size: 10px; letter-spacing: 2px; color: var(--text-secondary); text-transform: uppercase; }
+.charts-teaser-years { font-size: 9px; color: var(--text-muted); margin-top: 2px; }
+.charts-teaser-link { font-size: 9px; letter-spacing: 1px; color: var(--text-muted); }
+.charts-teaser-link:hover { color: var(--text-secondary); }
+
+/* REVIEW LIST */
+.review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.review-card {
+  background: var(--card-bg);
+  padding: 12px 14px;
+  border-radius: 2px;
+  border-left: 2px solid var(--border);
+  display: block;
+  transition: border-color 0.15s, background 0.15s;
+}
+.review-card:hover { border-color: var(--text-muted); background: #283447; }
+.review-card-band { font-size: 11px; font-weight: 500; }
+
+/* BAND DETAIL */
+.band-header { padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+.band-name { font-size: 22px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 6px; }
+
+.album-block { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--border); }
+.album-block:last-child { border-bottom: none; }
+.album-title { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+.album-meta { font-size: 10px; color: var(--text-secondary); margin-bottom: 4px; }
+.album-score { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; }
+.album-review { font-size: 11px; color: var(--text-secondary); line-height: 1.8; }
+.album-review p { margin-bottom: 8px; }
+
+/* NEWS ARCHIVE */
+.year-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.year-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 2px;
+  text-align: center;
+  display: block;
+  transition: background 0.15s;
+}
+.year-card:hover { background: #283447; }
+.year-number { font-size: 26px; font-weight: 200; letter-spacing: 4px; }
+
+.news-entry { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.news-entry:last-child { border-bottom: none; }
+.news-band { font-size: 11px; font-weight: 500; margin-bottom: 6px; letter-spacing: 1px; }
+.news-content { font-size: 10px; color: var(--text-secondary); line-height: 1.8; }
+
+/* MISC */
+.misc-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.misc-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 2px;
+  display: block;
+  transition: background 0.15s;
+}
+.misc-card:hover { background: #283447; }
+.misc-card-title { font-size: 12px; font-weight: 500; margin-bottom: 4px; }
+.misc-card-desc { font-size: 10px; color: var(--text-muted); }
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .magazine-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .card-featured { grid-row: span 1; }
+  .review-grid { grid-template-columns: 1fr; }
+  .year-grid { grid-template-columns: 1fr 1fr; }
+  .misc-grid { grid-template-columns: 1fr; }
+}
